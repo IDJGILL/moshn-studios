@@ -1,6 +1,7 @@
 import { MotionProps, motion } from 'framer-motion'
 import Header from '../header'
 import TransitionScale from '../transitions/scale'
+import Footer from '../footer'
 
 interface InnerProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -37,7 +38,8 @@ export default function Inner({ ...props }: InnerProps) {
     <TransitionScale>
       <motion.div {...anim(opacity)}>
         <Header />
-        {props.children}
+        <div className='min-h-screen'>{props.children}</div>
+        <Footer />
       </motion.div>
     </TransitionScale>
   )

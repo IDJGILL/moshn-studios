@@ -1,9 +1,9 @@
+import Footer from '@/components/footer'
 import HeroSection from '@/components/hero-section'
 import ImageSequencer from '@/components/image-sequencer'
 import Inner from '@/components/layout/inner'
-import ProjectsSectionV3 from '@/components/projects-section-v3'
 import ProjectsSlider from '@/components/projects-slider'
-import TestGsap from '@/components/test-gsap'
+import ServicesSection from '@/components/services-section'
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <ImageSequencer />
       <ProjectsSlider />
+      <ServicesSection />
     </Inner>
   )
 }

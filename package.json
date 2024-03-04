@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "react-scrollmagic": "^2.3.0",
     "react-use": "^17.5.0",
+    "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {

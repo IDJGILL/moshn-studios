@@ -169,7 +169,9 @@ export default function Header({ ...props }: HeaderProps) {
                     <li>Home</li>
                   </Link>
 
-                  <li onClick={() => router.push('/showcase')}>Showcase</li>
+                  <Link href='/showcase'>
+                    <li>Showcase</li>
+                  </Link>
 
                   <Link href='/services'>
                     <li>Services</li>

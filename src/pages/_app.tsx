@@ -5,6 +5,7 @@ import fonts from 'next/font/local'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 import { AnimatePresence } from 'framer-motion'
+import Footer from '@/components/footer'
 
 const localFonts = fonts({
   src: [
