@@ -10,6 +10,7 @@ import project2 from '@/assets/images/project-2.png'
 import project3 from '@/assets/images/project-3.png'
 import project4 from '@/assets/images/project-4.png'
 import Image, { StaticImageData } from 'next/image'
+import TextTypeAnimation from './text-type-animation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -73,20 +74,7 @@ export default function ProjectsSlider({ ...props }: ProjectsSliderProps) {
 
   return (
     <section>
-      <div className='flex items-center justify-between moshn-container pt-20 bg-black text-white'>
-        <div className='w-1/2'>
-          <h2 className='text-xxl font-title'>
-            {/* Our <br /> */}
-            Projects
-          </h2>
-        </div>
-
-        <div className='w-1/2 flex items-center justify-end'>
-          <div className='text-[2vw] font-medium leading-[120%]'>
-            Lorem Ipsum is simply dummy <br /> text of the printing and industry.
-          </div>
-        </div>
-      </div>
+      <TextTypeAnimation texts={['{ Our featured work }']} className='font-space_mono pt-40 pb-10 text-sm bg-black' />
 
       <div ref={containerRef} className='overflow-hidden'>
         <div className='cards-slider-container py-20 bg-black'>

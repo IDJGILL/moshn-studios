@@ -12,7 +12,7 @@ export default function Footer({ ...props }: FooterProps) {
   const {} = props
 
   return (
-    <footer className=' text-black border-t'>
+    <footer className='bg-white text-black border-t'>
       <div className='px-4 md:px-20 py-10 md:py-20'>
         <div>
           <div className='pb-10'>

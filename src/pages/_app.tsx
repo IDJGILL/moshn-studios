@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Montserrat } from 'next/font/google'
+import { Montserrat, Space_Mono } from 'next/font/google'
 import fonts from 'next/font/local'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
@@ -27,6 +27,8 @@ const localFonts = fonts({
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
+const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400'], variable: '--space-mono' })
+
 export default function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
     const lenis = new Lenis()
@@ -40,7 +42,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   }, [])
 
   return (
-    <main className={`${montserrat.className} ${localFonts.variable}`}>
+    <main className={`${montserrat.className} ${localFonts.variable} ${spaceMono.variable}`}>
       <AnimatePresence mode='wait'>
         <Component key={router.route} {...pageProps} />
       </AnimatePresence>

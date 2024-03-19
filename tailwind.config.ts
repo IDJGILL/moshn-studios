@@ -7,6 +7,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         title: ['var(--monument-fonts)', ...fontFamily.sans],
+        space_mono: ['var(--space-mono)', ...fontFamily.sans],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

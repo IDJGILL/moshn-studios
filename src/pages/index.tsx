@@ -1,4 +1,5 @@
-import Footer from '@/components/footer'
+import ClientsSection from '@/components/clients-section'
+import Cursor from '@/components/cursor'
 import HeroSection from '@/components/hero-section'
 import ImageSequencer from '@/components/image-sequencer'
 import Inner from '@/components/layout/inner'
@@ -9,9 +10,11 @@ export default function Home() {
   return (
     <Inner>
       <HeroSection />
+      <ClientsSection />
       <ImageSequencer />
       <ProjectsSlider />
-      <ServicesSection />
+
+      <Cursor initialSize={20} hoveredSize={200} />
     </Inner>
   )
 }

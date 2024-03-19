@@ -4,7 +4,7 @@ export default function ServicesSection({ ...props }: ServicesSectionProps) {
   const {} = props
 
   return (
-    <section className='pb-20 '>
+    <section className='pb-20 bg-white'>
       <div className='flex items-center moshn-container justify-between py-5 md:py-20'>
         <div className='w-1/2'>
           <h2 className='text-xxl font-title'>

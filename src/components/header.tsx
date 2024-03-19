@@ -7,12 +7,15 @@ import { ArrowUpRight, X } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import blackLogoText from '@/assets/brand/logo-text-black.png'
+import GrayLogoText from '@/assets/brand/logo-text-gray.png'
 import blackLogoIcon from '@/assets/brand/logo-icon-black.png'
 import grayLogoIcon from '@/assets/brand/logo-icon-gray.png'
 import { DateTime } from 'luxon'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useUpdateEffect } from 'react-use'
 import { ease } from './layout/inner'
+import Title from './title'
+import { cn } from '@/lib/utils'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -29,7 +32,7 @@ export default function Header({ ...props }: HeaderProps) {
       },
       active: {
         y: 'var(--nav-menu-y, 1vw)',
-        x: 'var(--nav-menu-x, -1vw)',
+        x: 'var(--nav-menu-x, -1.4vw)',
       },
     },
     dropdown: {
@@ -75,8 +78,6 @@ export default function Header({ ...props }: HeaderProps) {
   const formattedTime = now.toFormat('hh:mm ')
   const amPm = now.toFormat('a')
 
-  const router = useRouter()
-
   return (
     <motion.header
       variants={menuElementsAnimation.header}
@@ -86,15 +87,15 @@ export default function Header({ ...props }: HeaderProps) {
         type: 'tween',
         duration: 0.3,
       }}
-      className='sticky top-0 -mb-[15.38vw] md:-mb-[clamp(45px,3.57vw,200px)] inset-x-0 h-[15.38vw] md:h-[clamp(45px,3.57vw,200px)] z-[1000] bg-white flex items-center border-b border-border backdrop-blur-lg bg-opacity-60 [--nav-menu-y:4vw] md:[--nav-menu-y:1vw]'
+      className='sticky top-0 -mb-[15.38vw] md:-mb-[clamp(45px,3.57vw,200px)] inset-x-0 h-[15.38vw] md:h-[clamp(45px,3.57vw,200px)] z-[1000] flex items-center [--nav-menu-y:4vw] md:[--nav-menu-y:1vw]'
     >
       <div className='relative w-full h-full'>
         <div className='absolute flex items-center left-0 top-0 w-full h-full'>
           <div className='moshn-container'>
             <div className='flex items-center justify-between w-full'>
               <Link href='/'>
-                <div className='w-[30.38vw] md:w-[clamp(45px,10.57vw,160px)]'>
-                  <Image src={blackLogoText} alt='' className='w-full h-full' />
+                <div className='w-[30.38vw] md:w-[clamp(45px,10.57vw,160px)] flex gap-4 items-center'>
+                  <Image src={grayLogoIcon} alt='' className='max-w-[50px]' /> <Image src={GrayLogoText} alt='' className='w-full h-full' />
                 </div>
               </Link>
 
@@ -109,8 +110,8 @@ export default function Header({ ...props }: HeaderProps) {
                   }}
                   className='flex items-center justify-end md:justify-between w-[clamp(25vw,100vw,30.8vw)] will-change-transform'
                 >
-                  <div className='hidden md:block text-[0.7vw] uppercase text-slate-600 font-medium font-title'>
-                    Milan, Italy <span className='font-semibold text-black'>{formattedTime}</span>
+                  <div className='hidden md:block text-[0.7vw] uppercase text-slate-400 font-medium font-title'>
+                    Milan, Italy <span className='font-semibold '>{formattedTime}</span>
                     {amPm}
                   </div>
 
@@ -122,9 +123,42 @@ export default function Header({ ...props }: HeaderProps) {
                       ease: ease,
                     }}
                   >
-                    <span className='hidden md:block text-small-uppercase font-title leading-none mt-1'>Menu</span>
+                    <div
+                      className={cn(
+                        'relative !text-xs overflow-hidden md:block text-small-uppercase font-title leading-none mt-1 bg-white px-4 py-2 rounded-full text-black',
+                        {
+                          'text-white bg-black': visible,
+                        }
+                      )}
+                    >
+                      <motion.div
+                        animate={{
+                          y: visible ? 200 : 1,
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          ease: ease,
+                        }}
+                      >
+                        Menu
+                      </motion.div>
 
-                    <div className='ml-[2.05vw] md:ml-[0.71vw] inline-block'>
+                      <motion.div
+                        initial={{ top: -200 }}
+                        animate={{
+                          top: visible ? 1 : -200,
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          ease: ease,
+                        }}
+                        className='absolute left-1/2 -translate-x-1/2 translate-y-1/2'
+                      >
+                        Close
+                      </motion.div>
+                    </div>
+
+                    {/* <div className='ml-[2.05vw] md:ml-[0.71vw] inline-block'>
                       <div className='relative w-[clamp(10px,10.26vw,55px)] h-[clamp(10px,10.26vw,55px)] md:w-[2.38vw] md:h-[2.38vw] overflow-hidden aspect-square border rounded-full flex items-center justify-center cursor-pointer group'>
                         {!visible && (
                           <>
@@ -138,9 +172,7 @@ export default function Header({ ...props }: HeaderProps) {
 
                         <motion.span className='w-full h-full aspect-square absolute top-0 inset-0 rounded-full scale-0 ease-in-out duration-500 group-hover:scale-100 bg-black' />
                       </div>
-                    </div>
-
-                    <div className=' aspect-square rounded-full border'></div>
+                    </div> */}
                   </motion.button>
                 </motion.div>
               </div>
@@ -166,23 +198,33 @@ export default function Header({ ...props }: HeaderProps) {
               <nav className='font-title mb-24 md:mb-10'>
                 <ul className='text-[6.2vw] md:text-[2vw] flex flex-col [&>a]:py-[1vw] md:[&>a]:py-[.4vw]'>
                   <Link href='/'>
-                    <li>Home</li>
+                    <li>
+                      <Title text='Home' splitBy='' className='gap-0' />
+                    </li>
                   </Link>
 
                   <Link href='/showcase'>
-                    <li>Showcase</li>
+                    <li>
+                      <Title text='Showcase' splitBy='' className='gap-0' />
+                    </li>
                   </Link>
 
                   <Link href='/services'>
-                    <li>Services</li>
+                    <li>
+                      <Title text='Services' splitBy='' className='gap-0' />
+                    </li>
                   </Link>
 
                   <Link href='/about-us'>
-                    <li>About us</li>
+                    <li>
+                      <Title text='About us' splitBy='' className='gap-0' />
+                    </li>
                   </Link>
 
                   <Link href='/contact'>
-                    <li>Contact</li>
+                    <li>
+                      <Title text='Contact' splitBy='' className='gap-0' />
+                    </li>
                   </Link>
                 </ul>
               </nav>
