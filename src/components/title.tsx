@@ -1,25 +1,33 @@
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import gsap from 'gsap'
-import { ease } from './layout/inner'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { cn } from '@/lib/utils'
-import { useCursor } from './cursor'
+import { InView } from 'react-intersection-observer'
 
 gsap.registerPlugin(ScrollTrigger)
 
 interface TitleProps extends React.HTMLAttributes<HTMLElement> {
   text: string
-  splitBy?: string
-  animateCursor?: boolean
+  splitBy: 'words' | 'characters'
 }
 
 export default function Title({ ...props }: TitleProps) {
-  const {} = props
+  return (
+    <InView triggerOnce>
+      {({ inView, ref }) => <div ref={ref}>{inView && <Text text={props.text} splitBy={props.splitBy} className={props.className} />}</div>}
+    </InView>
+  )
+}
 
-  const { setCursor } = useCursor()
+interface Text extends React.HTMLAttributes<HTMLElement> {
+  text: string
+  splitBy: 'words' | 'characters'
+}
 
+function Text({ ...props }: Text) {
   const titleRef = useRef(null)
+  const { splitBy } = props
 
   useGSAP(
     () => {
@@ -37,17 +45,21 @@ export default function Title({ ...props }: TitleProps) {
   )
 
   return (
-    <span
+    <h3
       ref={titleRef}
-      onMouseOver={() => props.animateCursor && setCursor({ isHovered: true })}
-      onMouseOut={() => props.animateCursor && setCursor({ isHovered: false })}
-      className={cn('flex flex-wrap text-start gap-2 overflow-hidden', props.className)}
+      className={cn(
+        'flex flex-wrap text-start overflow-hidden py-2',
+        {
+          'gap-2': splitBy === 'words',
+        },
+        props.className
+      )}
     >
-      {props.text.split(props.splitBy ?? ' ').map((text, index) => (
+      {props.text.split(splitBy === 'words' ? ' ' : '').map((text, index) => (
         <span key={index} className='text'>
           {text}
         </span>
       ))}
-    </span>
+    </h3>
   )
 }

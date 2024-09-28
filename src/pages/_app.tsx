@@ -1,51 +1,43 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Montserrat, Space_Mono } from 'next/font/google'
 import fonts from 'next/font/local'
-import { useEffect } from 'react'
-import Lenis from '@studio-freight/lenis'
 import { AnimatePresence } from 'framer-motion'
-import Footer from '@/components/footer'
+import SmoothScroll from '@/components/smooth-scroll'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-const localFonts = fonts({
+const helvetica = fonts({
   src: [
     {
-      path: '../../public/fonts/monument-extended-black.woff',
-      weight: '800',
+      path: '../../public/fonts/HelveticaNeueLight.woff',
+      weight: '300',
     },
     {
-      path: '../../public/fonts/monument-extended-regular.woff',
+      path: '../../public/fonts/HelveticaNeueRoman.woff',
       weight: '400',
     },
     {
-      path: '../../public/fonts/monument-extended-light.woff',
-      weight: '300',
+      path: '../../public/fonts/HelveticaNeueMedium.woff',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/HelveticaNeueBold.woff',
+      weight: '700',
     },
   ],
-  variable: '--monument-fonts',
+  variable: '--helvetica-neue-font',
 })
 
-const montserrat = Montserrat({ subsets: ['latin'] })
-
-const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400'], variable: '--space-mono' })
+const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  useEffect(() => {
-    const lenis = new Lenis()
-
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-  }, [])
-
   return (
-    <main className={`${montserrat.className} ${localFonts.variable} ${spaceMono.variable}`}>
-      <AnimatePresence mode='wait'>
-        <Component key={router.route} {...pageProps} />
-      </AnimatePresence>
+    <main className={`${helvetica.variable} bg-black font-sans text-white antialiased tracking-tighter`}>
+      <QueryClientProvider client={queryClient}>
+        <AnimatePresence mode='wait'>
+          <Component key={router.route} {...pageProps} />
+          <SmoothScroll />
+        </AnimatePresence>
+      </QueryClientProvider>
     </main>
   )
 }

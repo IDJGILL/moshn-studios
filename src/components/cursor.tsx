@@ -78,8 +78,6 @@ export default function AnimatedCursor({ ...props }: AnimatedCursorProps) {
     }
   }, [animate, handleCursorSize, isTouchDevice])
 
-  // if (isTouchDevice) return null
-
   return (
     <div
       style={{

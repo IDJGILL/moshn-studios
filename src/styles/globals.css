@@ -14,10 +14,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+.glass {
+  @apply backdrop-filter backdrop-blur-lg bg-white/10;
+}
+
 body {
   user-select: none;
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: none;
+  background-color: black;
 }
 
 html.lenis {
@@ -82,7 +87,7 @@ html.lenis {
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: transpa;
+  scrollbar-color: transparent;
 }
 
 /* Chrome, Edge, and Safari */
@@ -97,4 +102,14 @@ html.lenis {
 *::-webkit-scrollbar-thumb {
   background-color: #cfcfcf;
   border-radius: 10px;
+}
+
+.text-3d {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #aaa, /* Shadow layers for 3D effect */ 2px 2px 0 #999, 3px 3px 0 #888, 4px 4px 0 #777, 5px 5px 0 #666,
+    6px 6px 0 #555;
 }
