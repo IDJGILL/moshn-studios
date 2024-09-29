@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 import Image, { StaticImageData } from 'next/image'
 import Title from '@/components/title'
 import { ProjectCard, projects } from '../pages/home/projects-section'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,7 +67,10 @@ export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDeskto
             <h3 className='text-large font-title mb-6 text-center'>Want more?</h3>
             <div className='flex items-center gap-4 font-medium'>
               View all projects{' '}
-              <motion.div className='relative w-11 h-11 overflow-hidden aspect-square border rounded-full flex items-center justify-center cursor-pointer group'>
+              <Link
+                href='/projects'
+                className='relative w-11 h-11 overflow-hidden aspect-square border rounded-full flex items-center justify-center cursor-pointer group'
+              >
                 <motion.div
                   className={cn(
                     'w-full h-full aspect-square absolute inset-0 rounded-full scale-0 ease-in-out duration-500 group-hover:scale-100 bg-white'
@@ -74,7 +78,7 @@ export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDeskto
                 ></motion.div>
 
                 <ArrowRightIcon className='text-white group-hover:text-black stroke-1 z-10 ease-in-out duration-300' />
-              </motion.div>
+              </Link>
             </div>
           </div>
         </div>
