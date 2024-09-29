@@ -8,10 +8,14 @@ import Title from '@/components/title'
 import { FormTextAreaInput } from '@/components/form-text-area-input'
 import { useMutation } from '@tanstack/react-query'
 import Link from 'next/link'
+import { FormSelect } from '@/components/form-select'
+
 const $ContactInput = z.object({
   name: z.string(),
   email: z.string().email(),
+  company: z.string(),
   details: z.string(),
+  contact_preference: z.enum(['Email', 'Phone']),
 })
 
 type ContactInput = z.infer<typeof $ContactInput>
@@ -41,10 +45,26 @@ export default function Contact() {
         <div className='max-w-4xl mx-auto h-screen flex flex-col items-center justify-center'>
           {!isSuccess ? (
             <>
-              <Title text="Let's get in touch" splitBy='words' className='text-3xl mb-10' />
+              <Title text='Connect With Us' splitBy='words' className='text-3xl mb-16' />
+
               <Form form={form} className='w-full'>
                 <FormTextInput form={form} name='name' label='Name' placeholder='karan Gill' className='pb-10' />
-                <FormTextInput form={form} name='email' label='Email' placeholder='karangill@gmai.com' className='pb-10' />
+
+                <FormTextInput form={form} name='email' label='Email' placeholder='karangill@gmai.com' className='pb-14' />
+
+                <FormSelect
+                  form={form}
+                  name='contact_preference'
+                  label='Contact Preference'
+                  placeholder='Email or Phone'
+                  className='pb-10'
+                  options={[
+                    { label: 'Email', value: 'Email' },
+                    { label: 'Phone', value: 'Phone' },
+                  ]}
+                  selectionMode='single'
+                />
+
                 <FormTextAreaInput
                   form={form}
                   name='details'

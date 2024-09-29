@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import useScrollLock from '@/hooks/useScrollLock'
-import { Menu, X } from 'lucide-react'
+import { Menu, PlusIcon, X } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import GrayLogoText from '@/assets/brand/logo-text-gray.png'
@@ -109,7 +109,7 @@ export default function Header({ ...props }: HeaderProps) {
               <div className='ml-[2.05vw] md:ml-[0.71vw] inline-block'>
                 <div className='relative w-[clamp(10px,10.26vw,55px)] h-[clamp(10px,10.26vw,55px)] md:w-[2.38vw] md:h-[2.38vw] overflow-hidden aspect-square rounded-full flex items-center justify-center cursor-pointer group'>
                   {!visible && (
-                    <Menu className='text-white group-hover:text-black stroke-1 z-10 ease-in-out duration-300 size-14 scale-100 group-hover:scale-50' />
+                    <PlusIcon className='text-white group-hover:text-black stroke-1 z-10 ease-in-out duration-300 size-14 scale-[1.1] group-hover:scale-50' />
                   )}
 
                   {visible && (

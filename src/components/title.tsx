@@ -33,10 +33,10 @@ function Text({ ...props }: Text) {
     () => {
       gsap.from('.text', {
         yPercent: 130,
-        delay: 0.4,
-        duration: 0.6,
+        delay: 0.2,
+        duration: 0.4,
         stagger: {
-          each: 0.12,
+          each: 0.1,
           // amount: 0.1,
         },
       })
@@ -48,7 +48,7 @@ function Text({ ...props }: Text) {
     <h3
       ref={titleRef}
       className={cn(
-        'flex flex-wrap text-start overflow-hidden py-2',
+        'flex flex-wrap text-start overflow-hidden py-2 font-title',
         {
           'gap-2': splitBy === 'words',
         },

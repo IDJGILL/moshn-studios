@@ -20,11 +20,13 @@ export default function Home() {
 
         <ProjectsSection />
 
-        <IndustriesSection />
+        <div className='max-w-[1800px] mx-auto'>
+          <IndustriesSection />
 
-        <AboutUs />
+          <AboutUs />
 
-        <OurService />
+          <OurService />
+        </div>
 
         <ClientsSection
           items={[

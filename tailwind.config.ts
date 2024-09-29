@@ -11,7 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--helvetica-neue-font)', ...fontFamily.sans],
+        sans: ['var(--questrial-font)', ...fontFamily.sans],
+        title: ['var(--garet-font)', ...fontFamily.sans],
       },
       animation: {
         scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',

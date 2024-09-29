@@ -68,7 +68,7 @@ export default function ClientsSection({ ...props }: Options) {
       <div
         ref={containerRef}
         className={cn(
-          'scroller relative z-20 overflow-hidden mt-10 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
+          'scroller relative z-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
           className
         )}
       >

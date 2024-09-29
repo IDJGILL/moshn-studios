@@ -64,15 +64,7 @@ export default function ProjectsSection({ ...props }: ProjectsSectionProps) {
     query: '(min-width: 1024px)',
   })
 
-  return (
-    <section>
-      <div className='flex items-center justify-center w-full h-[74px] pt-24 md:pt-40 md:pb-20'>
-        <Title text='Projects' splitBy='words' className='text-4xl md:text-6xl' />
-      </div>
-
-      {isDesktopOrLaptop ? <ProjectsSliderDesktop /> : <ProjectsSliderMobile />}
-    </section>
-  )
+  return <section>{isDesktopOrLaptop ? <ProjectsSliderDesktop /> : <ProjectsSliderMobile />}</section>
 }
 
 interface ProjectCardProps extends React.HTMLAttributes<HTMLElement> {

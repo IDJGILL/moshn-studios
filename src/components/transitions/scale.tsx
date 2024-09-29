@@ -48,11 +48,9 @@ export default function TransitionScale({ ...props }: TransitionScaleProps) {
 
   return (
     <div className='bg-black h-full'>
-      <motion.div {...anim(slide)} className='slide fixed left-0 top-0 w-screen bg-white h-screen z-[10000000000]' />
+      <motion.div {...anim(slide)} className='slide fixed left-0 top-0 w-screen glass !backdrop-blur-2xl h-screen z-[10000000000]' />
 
-      <motion.div {...anim(perspective)} className='bg-white'>
-        {props.children}
-      </motion.div>
+      <motion.div {...anim(perspective)}>{props.children}</motion.div>
     </div>
   )
 }

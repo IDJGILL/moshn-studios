@@ -73,7 +73,7 @@ function FormTextInput<TFieldValues extends FieldValues = FieldValues, TName ext
                     ? 'capitalize'
                     : ''
                 ),
-                label: 'text-sm',
+                label: 'text-base',
               }}
               maxLength={props.maxLength}
               minLength={props.minLength}

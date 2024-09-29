@@ -14,7 +14,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
 
         <div className='absolute top-10 left-10'>
           <Title text='Fashion' splitBy='characters' className='text-4xl' />
-          <p>Sneakers • Garments • Accessories • Digital Fashion</p>
+          <p className='opacity-60'>Sneakers • Garments • Accessories • Digital Fashion</p>
         </div>
       </div>
 
@@ -24,7 +24,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
 
           <div className='absolute top-10 left-10'>
             <Title text='Cosmetics' splitBy='characters' className='text-4xl' />
-            <p>Product Commercials • R&D • Visual Film</p>
+            <p className='opacity-60'>Product Commercials • R&D • Visual Film</p>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
 
           <div className='absolute top-10 left-10'>
             <Title text='Jewellery' splitBy='characters' className='text-4xl' />
-            <p>Product Showcase • Commercial • CGI</p>
+            <p className='opacity-60'>Product Showcase • Commercial • CGI</p>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
 
           <div className='absolute top-10 left-10'>
             <Title text='Marketing' splitBy='characters' className='text-4xl' />
-            <p>Mixed Reality • Character Creation • Commercials</p>
+            <p className='opacity-60'>Mixed Reality • Character Creation • Commercials</p>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
 
           <div className='absolute top-10 left-10'>
             <Title text='Tech' splitBy='characters' className='text-4xl' />
-            <p>Car • Tech Products • CGI • Product Showcase</p>
+            <p className='opacity-60'>Car • Tech Products • CGI • Product Showcase</p>
           </div>
         </div>
       </div>

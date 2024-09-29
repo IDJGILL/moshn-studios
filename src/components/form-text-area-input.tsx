@@ -63,6 +63,7 @@ function FormTextAreaInput<
               }}
               classNames={{
                 input: 'resize-y min-h-20',
+                label: 'text-base',
               }}
               maxLength={props.maxLength}
             />
