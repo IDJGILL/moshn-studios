@@ -30,11 +30,11 @@ export default function ContactSection({ ...props }: React.HTMLAttributes<HTMLEl
       onMouseLeave={handleMouseLeave}
       className='h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md'
     >
-      <h3 className='text-6xl text-center text-white relative z-20 flex items-center py-10 capitalize'>
+      <h3 className='text-6xl text-center text-white relative z-20 flex flex-col gap-4 items-center py-10 capitalize'>
         Bring your idea&apos;s to{' '}
         <span className='ml-4'>
           <motion.div
-            className='text-3d'
+            className='text-3d !text-9xl'
             style={{
               rotateX: rotateX,
               rotateY: rotateY,

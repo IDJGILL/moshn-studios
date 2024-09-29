@@ -3,10 +3,9 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import useScrollLock from '@/hooks/useScrollLock'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import blackLogoText from '@/assets/brand/logo-text-black.png'
 import GrayLogoText from '@/assets/brand/logo-text-gray.png'
 import { usePathname } from 'next/navigation'
 import { useUpdateEffect } from 'react-use'
@@ -140,7 +139,7 @@ export default function Header({ ...props }: HeaderProps) {
               ease: ease,
             }}
             exit={{ scale: 0, opacity: 0 }}
-            className='z-[99999] shadow-2xl will-change-transform fixed top-[10px] right-[10px] left-[10px] md:left-auto rounded-[clamp(22px,2vw,48px)] overflow-hidden text-white w-[calc(100vw-20px)] md:w-[clamp(25vw,100vw,20.6vw)] origin-top-right h-[calc(100vh-20px)] glass'
+            className='z-[99999] shadow-2xl will-change-transform fixed top-[10px] right-[10px] left-[10px] md:left-auto rounded-[clamp(22px,2vw,48px)] overflow-hidden text-white w-[calc(100vw-20px)] md:w-[clamp(25vw,100vw,20.6vw)] origin-top-right h-[calc(100dvh-20px)] glass'
           >
             <div className='flex flex-col justify-between h-full pt-[88px] pr-[6.15vw] pb-[8.21vw] pl-[6.15vw] md:pt-[calc(16px+4vw)] md:pr-[1.67vw] md:pb-[2.38vw] md:pl-[2.8vw]'>
               <nav className='font-title mb-24 md:mb-10'>

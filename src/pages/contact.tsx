@@ -37,7 +37,7 @@ export default function Contact() {
 
   return (
     <Inner>
-      <div className='bg-black h-screen dark'>
+      <div className='bg-black h-screen dark px-6'>
         <div className='max-w-4xl mx-auto h-screen flex flex-col items-center justify-center'>
           {!isSuccess ? (
             <>

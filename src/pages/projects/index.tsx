@@ -12,7 +12,7 @@ export default function Projects() {
           <Title text='Projects' splitBy='characters' className='text-6xl' />
         </div>
 
-        <div className='grid grid-cols-4 gap-4 mt-20 p-8'>
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-20 p-8'>
           {projects.map((item, index) => (
             <div key={item.name} className='flex flex-col items-center justify-center gap-4 w-full max-w-max rounded-3xl overflow-hidden'>
               <Link href={`/projects/${item.name}`}>

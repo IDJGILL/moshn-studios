@@ -1,18 +1,18 @@
 import Image from 'next/image'
-import Services from '@/assets/images/services.png'
+import Services from '@/assets/images/services.webp'
 import Title from '@/components/title'
 
 export default function OurService({ ...props }: React.HTMLAttributes<HTMLElement>) {
   const {} = props
 
   return (
-    <section className='flex pb-20 pr-20'>
-      <div className='relative h-[800px] w-[50%] overflow-hidden'>
+    <section className='flex flex-col-reverse lg:flex-row px-4 lg:pb-20 lg:pr-20 gap-10'>
+      <div className='relative h-[800px] lg:w-[50%] overflow-hidden'>
         <Image src={Services} alt='' fill className='object-cover' />
       </div>
 
-      <div className='w-[50%] flex flex-col justify-center pl-24'>
-        <Title text='Our Service' splitBy='words' className='text-8xl tracking-tighter gap-6' />
+      <div className='lg:w-[50%] flex flex-col justify-center lg:pl-24'>
+        <Title text='Our Service' splitBy='words' className='text-5xl lg:text-8xl tracking-tighter gap-6' />
 
         <div className='mt-10 space-y-3 text-pretty max-w-xl text-lg'>
           <p>
