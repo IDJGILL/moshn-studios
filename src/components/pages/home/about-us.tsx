@@ -4,7 +4,7 @@ import Title from '@/components/title'
 
 export default function AboutUs({ ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <section className='flex flex-col lg:flex-row pt-80 pb-20 px-4 lg:px-20 gap-10'>
+    <section className='flex flex-col lg:flex-row pt-20 lg:pt-80 pb-20 px-4 lg:px-20 gap-10'>
       <div className='lg:w-[50%] flex flex-col justify-center'>
         <Title text='About Us' splitBy='words' className='text-5xl gap-4 lg:text-8xl tracking-tighter lg:gap-6' />
 

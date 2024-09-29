@@ -9,7 +9,7 @@ export function HeroSection({ ...props }: React.HTMLAttributes<HTMLElement>) {
         <div className='flex flex-col items-center z-20 w-full'>
           <div>Welcome</div>
 
-          <h2 className='text-xl sm:text-4xl 2xl:text-7xl text-balance font-light max-w-7xl text-center mt-8 capitalize !leading-[120%]'>
+          <h2 className='text-xl sm:text-4xl 2xl:text-7xl text-balance tracking-tight font-light max-w-7xl text-center mt-8 capitalize !leading-[120%]'>
             We specialize in elevating brands, launching products, and creating spectacles through 3D animations and <br />
             experimental digital design.
           </h2>

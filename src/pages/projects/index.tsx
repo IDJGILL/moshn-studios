@@ -13,7 +13,7 @@ export default function Projects() {
         </div>
 
         <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-20 p-8'>
-          {projects.map((item, index) => (
+          {projects.map((item) => (
             <div key={item.name} className='flex flex-col items-center justify-center gap-4 w-full max-w-max rounded-3xl overflow-hidden'>
               <Link href={`/projects/${item.name}`}>
                 <Image src={item.image} alt='' className='aspect-[9/16]' />

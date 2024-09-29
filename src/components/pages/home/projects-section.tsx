@@ -66,8 +66,8 @@ export default function ProjectsSection({ ...props }: ProjectsSectionProps) {
 
   return (
     <section>
-      <div className='flex items-center justify-center w-full h-[74px] pt-20'>
-        <Title text='Our Projects' splitBy='words' className='text-2xl uppercase' />
+      <div className='flex items-center justify-center w-full h-[74px] pt-24 md:pt-40 md:pb-20'>
+        <Title text='Projects' splitBy='words' className='text-4xl md:text-6xl' />
       </div>
 
       {isDesktopOrLaptop ? <ProjectsSliderDesktop /> : <ProjectsSliderMobile />}
