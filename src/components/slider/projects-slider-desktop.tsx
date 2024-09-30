@@ -7,12 +7,15 @@ import { ArrowRightIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image, { StaticImageData } from 'next/image'
 import Title from '@/components/title'
-import { ProjectCard, projects } from '../pages/home/projects-section'
+import { ProjectCard } from '../pages/home/projects-section'
 import Link from 'next/link'
+import { Projects } from '@/lib/queries'
 
 gsap.registerPlugin(ScrollTrigger)
 
-interface ProjectsSliderDesktopProps extends React.HTMLAttributes<HTMLElement> {}
+interface ProjectsSliderDesktopProps extends React.HTMLAttributes<HTMLElement> {
+  projects: Projects
+}
 
 export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDesktopProps) {
   const containerRef = useRef<ElementRef<'div'>>(null)
@@ -59,8 +62,8 @@ export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDeskto
     <div ref={containerRef} className='overflow-hidden'>
       <div className='cards-slider-container relative py-20'>
         <div className='cards-wrapper flex max-w-max cards-container will-change-transform pl-8'>
-          {projects.map((item, index) => (
-            <ProjectCard key={item.name} item={item} index={index} className='mr-8' />
+          {props.projects.map((item, index) => (
+            <ProjectCard key={item.title} project={item} index={index} className='mr-8' />
           ))}
 
           <div className='p-6 flex flex-col items-center justify-center overflow-hidden shrink-0 h-[calc(100vh-160px)] aspect-[9/16] cursor-pointer card bg-black text-white'>

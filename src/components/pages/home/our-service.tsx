@@ -14,7 +14,7 @@ export default function OurService({ ...props }: React.HTMLAttributes<HTMLElemen
       </div>
 
       <div className='lg:w-[50%] flex flex-col justify-center lg:pl-24'>
-        <Title text='Our Service' splitBy='words' className='text-5xl lg:text-7xl tracking-tighter gap-6' />
+        <Title text='Our Service' splitBy='words' className='text-5xl lg:text-6xl tracking-tighter gap-6' />
 
         <div className='mt-10 space-y-3 text-pretty max-w-xl text-lg'>
           <p>

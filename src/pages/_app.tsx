@@ -5,6 +5,7 @@ import { Questrial } from 'next/font/google'
 import { AnimatePresence } from 'framer-motion'
 import SmoothScroll from '@/components/smooth-scroll'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'sonner'
 
 const garet = fonts({
   src: [
@@ -32,6 +33,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <AnimatePresence mode='wait'>
           <Component key={router.route} {...pageProps} />
           <SmoothScroll />
+          <Toaster />
         </AnimatePresence>
       </QueryClientProvider>
     </main>

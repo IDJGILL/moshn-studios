@@ -9,28 +9,22 @@ import { FormTextAreaInput } from '@/components/form-text-area-input'
 import { useMutation } from '@tanstack/react-query'
 import Link from 'next/link'
 import { FormSelect } from '@/components/form-select'
-
-const $ContactInput = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  company: z.string(),
-  details: z.string(),
-  contact_preference: z.enum(['Email', 'Phone']),
-})
-
-type ContactInput = z.infer<typeof $ContactInput>
+import { $ContactInput, ContactInput } from '@/lib/schema'
+import { toast } from 'sonner'
 
 export default function Contact() {
   const [isSuccess, setSuccess] = useState(false)
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (input: ContactInput) => {
-      return fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify(input),
-      })
+    mutationFn: async (input: ContactInput) => {
+      const response = await fetch('/api/contact', { method: 'POST', body: JSON.stringify(input) })
+
+      if (!response.ok) throw new Error('Something went wrong, please try again later.')
     },
     onSuccess: () => setSuccess(true),
+    onError: () => {
+      toast.error('Something went wrong, please try again later.')
+    },
   })
 
   const { form, handleSubmit } = useForm({
@@ -41,16 +35,18 @@ export default function Contact() {
 
   return (
     <Inner>
-      <div className='bg-black h-screen dark px-6'>
-        <div className='max-w-4xl mx-auto h-screen flex flex-col items-center justify-center'>
+      <div className='bg-black dark px-6 py-20'>
+        <div className='max-w-4xl mx-auto min-h-screen flex flex-col items-center justify-center'>
           {!isSuccess ? (
             <>
               <Title text='Connect With Us' splitBy='words' className='text-3xl mb-16' />
 
               <Form form={form} className='w-full'>
-                <FormTextInput form={form} name='name' label='Name' placeholder='karan Gill' className='pb-10' />
+                <FormTextInput form={form} name='name' label='Name' placeholder='Enter your name' className='pb-10' />
 
-                <FormTextInput form={form} name='email' label='Email' placeholder='karangill@gmai.com' className='pb-14' />
+                <FormTextInput form={form} name='email' label='Email' placeholder='Enter your email' className='pb-14' />
+
+                <FormTextInput form={form} name='company' label='Company' placeholder='Enter your company name' className='pb-14' />
 
                 <FormSelect
                   form={form}
@@ -67,9 +63,9 @@ export default function Contact() {
 
                 <FormTextAreaInput
                   form={form}
-                  name='details'
-                  label='Details'
-                  placeholder='I need help to bring my imagination to 3D visualization.'
+                  name='project_details'
+                  label='Project Details'
+                  placeholder='Enter your project details'
                   className='pb-10'
                 />
 
@@ -87,7 +83,7 @@ export default function Contact() {
               </div>
 
               <Button className='glass' as={Link} href='/projects'>
-                Our Projects
+                View Projects
               </Button>
             </div>
           )}

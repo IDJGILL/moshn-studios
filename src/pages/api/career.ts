@@ -1,4 +1,4 @@
-import { $ContactInput } from '@/lib/schema'
+import { $CareerInput } from '@/lib/schema'
 import axios from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -19,18 +19,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const data = req.body
 
   try {
-    const form = new FormData()
+    const input = $CareerInput.parse(JSON.parse(data))
 
-    const input = $ContactInput.parse(JSON.parse(data))
+    const form = new FormData()
 
     form.append('your-name', input.name)
     form.append('your-email', input.email)
-    form.append('your-company', input.company)
-    form.append('your-project-details', input.project_details)
-    form.append('your-contact-preference', input.contact_preference)
+    form.append('your-phone-number', input.phone_number)
+    form.append('your-position', input.position)
+    form.append('your-portfolio-url', input.portfolio_url)
+    form.append('about-yourself', input.about_yourself)
+    form.append('your-work-type', input.work_type)
 
     const result = await axios.post<FormResponse>(
-      'https://admin.moshnstudios.com/wp-json/contact-form-7/v1/contact-forms/9/feedback',
+      'https://admin.moshnstudios.com/wp-json/contact-form-7/v1/contact-forms/10/feedback',
       form,
       {
         headers: { 'Content-Type': 'multipart/form-data' },

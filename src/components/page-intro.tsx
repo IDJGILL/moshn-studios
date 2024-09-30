@@ -8,8 +8,6 @@ export default function PageIntro({ ...props }: PageIntroProps) {
 
   const isMounted = useMount()
 
-  console.log({ isMounted })
-
   return (
     <AnimatePresence>
       {!isMounted && (

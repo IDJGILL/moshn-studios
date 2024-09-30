@@ -12,7 +12,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
       <div className='col-span-2 h-[400px] md:h-[600px] relative rounded-[60px] overflow-hidden'>
         <Image src={Fashion} alt='' fill className='object-cover' />
 
-        <div className='absolute top-10 left-10'>
+        <div className='absolute bottom-10 left-10'>
           <Title text='Fashion' splitBy='characters' className='text-4xl' />
           <p className='opacity-60'>Sneakers • Garments • Accessories • Digital Fashion</p>
         </div>
@@ -22,7 +22,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
         <div className='h-[400px] md:h-[800px] md:w-[58%] col-span-2 relative rounded-[60px] overflow-hidden'>
           <Image src={Cosmetics} alt='' fill className='object-cover' />
 
-          <div className='absolute top-10 left-10'>
+          <div className='absolute bottom-10 left-10'>
             <Title text='Cosmetics' splitBy='characters' className='text-4xl' />
             <p className='opacity-60'>Product Commercials • R&D • Visual Film</p>
           </div>
@@ -31,7 +31,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
         <div className='h-[400px] md:h-[800px] md:w-[42%] relative rounded-[60px] overflow-hidden'>
           <Image src={Jewelry} alt='' fill className='object-cover' />
 
-          <div className='absolute top-10 left-10'>
+          <div className='absolute bottom-10 left-10'>
             <Title text='Jewellery' splitBy='characters' className='text-4xl' />
             <p className='opacity-60'>Product Showcase • Commercial • CGI</p>
           </div>
@@ -42,7 +42,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
         <div className='aspect-[9/16] h-[400px] md:h-[800px] md:w-[30%] col-span-2 relative rounded-[60px] overflow-hidden'>
           <Image src={Campaign} alt='' fill className='object-cover' />
 
-          <div className='absolute top-10 left-10'>
+          <div className='absolute bottom-10 left-10'>
             <Title text='Marketing' splitBy='characters' className='text-4xl' />
             <p className='opacity-60'>Mixed Reality • Character Creation • Commercials</p>
           </div>
@@ -51,7 +51,7 @@ export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTM
         <div className='w-full md:w-[70%] h-[400px] md:h-[800px] relative rounded-[60px] overflow-hidden'>
           <Image src={Product} alt='' fill className='object-cover' />
 
-          <div className='absolute top-10 left-10'>
+          <div className='absolute bottom-10 left-10'>
             <Title text='Tech' splitBy='characters' className='text-4xl' />
             <p className='opacity-60'>Car • Tech Products • CGI • Product Showcase</p>
           </div>

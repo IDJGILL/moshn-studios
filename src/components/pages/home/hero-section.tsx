@@ -7,12 +7,13 @@ export function HeroSection({ ...props }: React.HTMLAttributes<HTMLElement>) {
     <section className='h-[105vh] relative overflow-hidden text-white '>
       <div className='flex md:items-center items-center justify-center p-8 h-screen w-full'>
         <div className='flex flex-col items-center z-20 w-full'>
-          <h2 className='text-xl sm:text-2xl text-balance tracking-tight font-light text-center mt-8 capitalize !leading-[120%] max-w-2xl'>
-            We specialize in elevating brands, launching products, and creating spectacles through 3D animations and experimental digital
-            design.
+          <h2 className='text-xl sm:text-2xl text-balance tracking-tight font-light text-center mt-8 !leading-[120%] max-w-2xl'>
+            We are a contemporary design studio specializing in digital image making.Offering sophisticated art direction and execution at
+            scale. We specialize in elevating brands, launching products, and fostering collaborative relationships with forward-thinking
+            clients.
           </h2>
 
-          <Button as={Link} href='/contact' className='glass mt-20 text-white text-base px-8'>
+          <Button as={Link} href='/contact' className='glass mt-10 text-white text-base px-8'>
             Let&apos;s Connect
           </Button>
         </div>

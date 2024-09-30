@@ -4,29 +4,17 @@ import { FormTextAreaInput } from '@/components/form-text-area-input'
 import { FormTextInput } from '@/components/form-text-input'
 import Inner from '@/components/layout/inner'
 import Title from '@/components/title'
+import { $CareerInput, CareerInput } from '@/lib/schema'
 import { Button, Link } from '@nextui-org/react'
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
-import { z } from 'zod'
-
-const $CareerInput = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  phone_number: z.string(),
-  position: z.string(),
-  portfolio_url: z.string(),
-  about_yourself: z.string(),
-  work_type: z.enum(['Full Time', 'Part Time', 'Freelance']),
-})
-
-type CareerInput = z.infer<typeof $CareerInput>
 
 export default function CareerPage({ ...props }: React.HTMLAttributes<HTMLElement>) {
   const [isSuccess, setSuccess] = useState(false)
 
   const { mutate, isPending } = useMutation({
     mutationFn: (input: CareerInput) => {
-      return fetch('/api/contact', {
+      return fetch('/api/career', {
         method: 'POST',
         body: JSON.stringify(input),
       })
@@ -55,11 +43,17 @@ export default function CareerPage({ ...props }: React.HTMLAttributes<HTMLElemen
               </div>
 
               <Form form={form} className='w-full'>
-                <FormTextInput form={form} name='name' label='Name' placeholder='karan Gill' className='pb-10' />
+                <FormTextInput form={form} name='name' label='Name' placeholder='Enter your name' className='pb-10' />
 
-                <FormTextInput form={form} name='email' label='Email' placeholder='karangill@gmai.com' className='pb-10' />
+                <FormTextInput form={form} name='email' label='Email' placeholder='Enter your email' className='pb-10' />
 
-                <FormTextInput form={form} name='phone_number' label='Phone Number' placeholder='9565440004' className='pb-10' />
+                <FormTextInput
+                  form={form}
+                  name='phone_number'
+                  label='Phone Number'
+                  placeholder='Enter your phone number'
+                  className='pb-10'
+                />
 
                 <FormSelect
                   form={form}
@@ -75,7 +69,13 @@ export default function CareerPage({ ...props }: React.HTMLAttributes<HTMLElemen
                   selectionMode='single'
                 />
 
-                <FormTextInput form={form} name='position' label='Position Applied For' placeholder='Video Editor' className='pb-10' />
+                <FormTextInput
+                  form={form}
+                  name='position'
+                  label='Position Applied For'
+                  placeholder='Enter your position'
+                  className='pb-10'
+                />
 
                 <FormTextInput
                   form={form}
@@ -88,8 +88,8 @@ export default function CareerPage({ ...props }: React.HTMLAttributes<HTMLElemen
                 <FormTextAreaInput
                   form={form}
                   name='about_yourself'
-                  label='Details'
-                  placeholder='I enjoy creating visually stunning video edits.'
+                  label='About Yourself'
+                  placeholder='Tell us about yourself'
                   className='pb-10'
                 />
 
@@ -107,7 +107,7 @@ export default function CareerPage({ ...props }: React.HTMLAttributes<HTMLElemen
               </div>
 
               <Button className='glass' as={Link} href='/projects'>
-                Our Projects
+                View Projects
               </Button>
             </div>
           )}

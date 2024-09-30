@@ -29,37 +29,24 @@ function Text({ ...props }: Text) {
   const titleRef = useRef(null)
   const { splitBy } = props
 
-  useGSAP(
-    () => {
-      gsap.from('.text', {
-        yPercent: 130,
-        delay: 0.2,
-        duration: 0.4,
-        stagger: {
-          each: 0.1,
-          // amount: 0.1,
-        },
-      })
-    },
-    { scope: titleRef }
-  )
+  // useGSAP(
+  //   () => {
+  //     gsap.from('.text', {
+  //       yPercent: 130,
+  //       delay: 0.2,
+  //       duration: 0.4,
+  //       stagger: {
+  //         each: 0.1,
+  //         // amount: 0.1,
+  //       },
+  //     })
+  //   },
+  //   { scope: titleRef }
+  // )
 
   return (
-    <h3
-      ref={titleRef}
-      className={cn(
-        'flex flex-wrap text-start overflow-hidden py-2 font-title',
-        {
-          'gap-2': splitBy === 'words',
-        },
-        props.className
-      )}
-    >
-      {props.text.split(splitBy === 'words' ? ' ' : '').map((text, index) => (
-        <span key={index} className='text'>
-          {text}
-        </span>
-      ))}
+    <h3 ref={titleRef} className={cn('py-2 font-title font-bold tracking-tighter', props.className)}>
+      {props.text}
     </h3>
   )
 }

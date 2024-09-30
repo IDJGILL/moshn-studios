@@ -6,7 +6,7 @@ export default function AboutUs({ ...props }: React.HTMLAttributes<HTMLElement>)
   return (
     <section className='flex flex-col lg:flex-row pt-28 lg:pt-36 pb-20 px-4 lg:px-20 gap-10'>
       <div className='lg:w-[50%] flex flex-col justify-center'>
-        <Title text='About Us' splitBy='words' className='text-5xl gap-4 lg:text-7xl tracking-tighter lg:gap-6' />
+        <Title text='About Us' splitBy='words' className='text-5xl gap-4 lg:text-6xl tracking-tighter lg:gap-6' />
 
         <div className='mt-10 space-y-3 text-pretty lg:max-w-xl text-lg'>
           <p>

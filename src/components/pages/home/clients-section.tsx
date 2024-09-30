@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '@nextui-org/react'
 import Image from 'next/image'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
-import Title from '@/components/title'
 
 interface Options extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -64,7 +63,7 @@ export default function ClientsSection({ ...props }: Options) {
   useEffect(() => addAnimation(), [addAnimation])
 
   return (
-    <section className='mx-auto py-20 border-b border-white/10'>
+    <section className='mx-auto py-6 md:py-20 border-b border-white/10'>
       <div
         ref={containerRef}
         className={cn(
