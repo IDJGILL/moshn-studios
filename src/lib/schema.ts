@@ -4,6 +4,7 @@ export const $ContactInput = z.object({
   name: z.string(),
   email: z.string().email(),
   company: z.string(),
+  phone_number: z.string(),
   project_details: z.string(),
   contact_preference: z.enum(['Email', 'Phone']),
 })

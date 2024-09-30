@@ -72,7 +72,6 @@ export default function ProjectsSection({ ...props }: ProjectsSectionProps) {
 
 interface ProjectCardProps extends React.HTMLAttributes<HTMLElement> {
   project: Projects[number]
-  index: number
 }
 
 export function ProjectCard({ ...props }: ProjectCardProps) {
@@ -80,26 +79,28 @@ export function ProjectCard({ ...props }: ProjectCardProps) {
 
   return (
     <Link
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       href={`/projects/${props.project.slug}`}
       className={cn(
         'overflow-hidden shrink-0 h-[calc(100vh-160px)] aspect-[9/16] cursor-pointer card bg-black rounded-3xl hover:scale-[1.08] ease-in-out duration-300',
         props.className
       )}
-      style={{
-        backgroundImage: `url(${props.project.projectFields.videoPreview.node.mediaItemUrl})`,
-        backgroundPosition: isHovered ? '0 0' : '0 0',
-      }}
     >
-      <motion.span>
+      {!isHovered ? (
         <Image
-          src={props.project.projectFields.videoPreview.node.mediaItemUrl}
+          src={props.project.projectFields.videoThumbnail?.node.mediaItemUrl ?? ''}
           width={600}
           height={800}
           alt=''
           className='aspect-[9/16]'
           priority
         />
-      </motion.span>
+      ) : (
+        <video autoPlay muted playsInline loop>
+          <source src={props.project.projectFields.videoPreview?.node.mediaItemUrl ?? ''} className='aspect-[9/16]' type='video/mp4' />
+        </video>
+      )}
     </Link>
   )
 }

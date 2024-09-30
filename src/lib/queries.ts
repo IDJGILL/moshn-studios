@@ -1,4 +1,3 @@
-import { env } from 'process'
 import extractImageUrls from './parser'
 
 export type Project = {
@@ -13,17 +12,22 @@ export type Project = {
       node: {
         mediaItemUrl: string
       }
-    }
+    } | null
     video: {
       node: {
         mediaItemUrl: string
       }
-    }
+    } | null
+    videoThumbnail: {
+      node: {
+        mediaItemUrl: string
+      }
+    } | null
     videoPreview: {
       node: {
         mediaItemUrl: string
       }
-    }
+    } | null
   }
 }
 
@@ -47,6 +51,11 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
           mediaItemUrl
         }
       }
+      videoThumbnail {
+        node {
+          mediaItemUrl
+        }
+      }
       videoPreview {
         node {
           mediaItemUrl
@@ -56,7 +65,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
   }
 }`
 
-  const response = await fetch(`${env.BACKEND_URL}/graphql`, {
+  const response = await fetch(`https://admin.moshnstudios.com/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -87,12 +96,17 @@ export type Projects = {
       node: {
         mediaItemUrl: string
       }
-    }
+    } | null
+    videoThumbnail: {
+      node: {
+        mediaItemUrl: string
+      }
+    } | null
     videoPreview: {
       node: {
         mediaItemUrl: string
       }
-    }
+    } | null
   }
 }[]
 
@@ -108,6 +122,11 @@ export const getProjects = async (): Promise<Projects> => {
             mediaItemUrl
           }
         }
+        videoThumbnail {
+          node {
+            mediaItemUrl
+          }
+        }
         videoPreview {
           node {
             mediaItemUrl
@@ -118,7 +137,7 @@ export const getProjects = async (): Promise<Projects> => {
   }
 }`
 
-  const response = await fetch(`${env.BACKEND_URL}/graphql`, {
+  const response = await fetch(`https://admin.moshnstudios.com/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

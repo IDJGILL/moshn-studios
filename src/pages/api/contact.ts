@@ -25,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     form.append('your-name', input.name)
     form.append('your-email', input.email)
+    form.append('your-phone', input.phone_number)
     form.append('your-company', input.company)
     form.append('your-project-details', input.project_details)
     form.append('your-contact-preference', input.contact_preference)

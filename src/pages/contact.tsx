@@ -44,6 +44,14 @@ export default function Contact() {
               <Form form={form} className='w-full'>
                 <FormTextInput form={form} name='name' label='Name' placeholder='Enter your name' className='pb-10' />
 
+                <FormTextInput
+                  form={form}
+                  name='phone_number'
+                  label='Phone Number'
+                  placeholder='Enter your phone number'
+                  className='pb-14'
+                />
+
                 <FormTextInput form={form} name='email' label='Email' placeholder='Enter your email' className='pb-14' />
 
                 <FormTextInput form={form} name='company' label='Company' placeholder='Enter your company name' className='pb-14' />

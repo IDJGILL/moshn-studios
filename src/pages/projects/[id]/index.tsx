@@ -17,7 +17,7 @@ export default function ProjectPage({ project }: Props) {
         <div className='w-full z-10 bg-black fixed top-0 left-0'>
           <div className='relative h-[calc(100vh-200px)] w-full overflow-hidden flex items-center justify-center px-6 text-center'>
             <Title text={project.title} splitBy='words' className='text-6xl text-center text-balance z-50 text-white' />
-            <Image src={project.projectFields.projectThumbnail.node.mediaItemUrl} alt='' fill className='object-cover z-[-1]' />
+            <Image src={project.projectFields.projectThumbnail?.node.mediaItemUrl ?? ''} alt='' fill className='object-cover z-[-1]' />
           </div>
         </div>
 
@@ -27,7 +27,7 @@ export default function ProjectPage({ project }: Props) {
 
             <div className='flex flex-col items-center justify-center py-10'>
               <video autoPlay loop muted playsInline className='aspect-[9/16] max-w-[400px]' controls>
-                <source src={project.projectFields.video.node.mediaItemUrl} type='video/mp4' />
+                <source src={project.projectFields.video?.node.mediaItemUrl} type='video/mp4' />
               </video>
             </div>
 
@@ -57,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { id: project.slug },
   }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
