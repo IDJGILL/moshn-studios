@@ -1,12 +1,10 @@
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { ElementRef, useRef, useState } from 'react'
+import { ElementRef, useRef } from 'react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRightIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Image, { StaticImageData } from 'next/image'
-import Title from '@/components/title'
 import { ProjectCard } from '../pages/home/projects-section'
 import Link from 'next/link'
 import { Projects } from '@/lib/queries'
@@ -63,7 +61,7 @@ export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDeskto
       <div className='cards-slider-container relative py-20'>
         <div className='cards-wrapper flex max-w-max cards-container will-change-transform pl-8'>
           {props.projects.map((item, index) => (
-            <ProjectCard key={item.title} project={item} index={index} className='mr-8' />
+            <ProjectCard key={item.title} project={item} className='mr-8' />
           ))}
 
           <div className='p-6 flex flex-col items-center justify-center overflow-hidden shrink-0 h-[calc(100vh-160px)] aspect-[9/16] cursor-pointer card bg-black text-white'>

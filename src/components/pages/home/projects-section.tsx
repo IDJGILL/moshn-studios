@@ -1,6 +1,5 @@
 import { Projects } from '@/lib/queries'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
