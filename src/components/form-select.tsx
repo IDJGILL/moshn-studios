@@ -64,7 +64,7 @@ function FormSelect<TFieldValues extends FieldValues = FieldValues, TName extend
                 ))
               }
               disallowEmptySelection={props.selectionMode === 'single'}
-              classNames={{ label: 'text-base' }}
+              classNames={{ label: 'text-base', popoverContent: '!font-sans glass text-white' }}
             >
               {props.options.map((option) => (
                 <SelectItem key={option.value} className='capitalize'>
