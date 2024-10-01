@@ -34,7 +34,7 @@ export default function ProjectsSliderMobile({ ...props }: ProjectsSliderMobileP
 
             <CarouselContent>
               {projects.map((item) => (
-                <CarouselItem key={item.title} className='sm:basis-1/2 md:basis-1/3'>
+                <CarouselItem key={item.slug} className='sm:basis-1/2 md:basis-1/3'>
                   <ProjectCard project={item} className='max-w-full h-auto' />
                 </CarouselItem>
               ))}

@@ -61,7 +61,7 @@ export default function ProjectsSliderDesktop({ ...props }: ProjectsSliderDeskto
       <div className='cards-slider-container relative py-20'>
         <div className='cards-wrapper flex max-w-max cards-container will-change-transform md:pl-8 px-4 md:px-0'>
           {props.projects.map((item, index) => (
-            <ProjectCard key={item.title} project={item} className='mr-4 md:mr-8' />
+            <ProjectCard key={item.slug} project={item} className='mr-4 md:mr-8' />
           ))}
 
           <div className='p-6 flex flex-col items-center justify-center overflow-hidden shrink-0 h-[calc(100vh-160px)] aspect-[9/16] cursor-pointer card bg-black text-white'>
