@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Fashion from '@/assets/industries/fashion.gif'
 import Jewelry from '@/assets/industries/Jewelry.webp'
 import Cosmetics from '@/assets/industries/cosmetics.webp'
 import Campaign from '@/assets/industries/campaign.webp'
@@ -9,8 +8,10 @@ import Title from '@/components/title'
 export default function IndustriesSection({ ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <section className='flex flex-col gap-4 md:px-20 px-4'>
-      <div className='col-span-2 h-[400px] md:h-[600px] relative rounded-[60px] overflow-hidden'>
-        <Image src={Fashion} alt='' fill className='object-cover' />
+      <div className='relative col-span-2 h-[400px] md:h-[600px] rounded-[60px] overflow-hidden'>
+        <video autoPlay muted playsInline loop className='w-full h-full object-cover'>
+          <source src='/videos/fashion.m4v' type='video/mp4' />
+        </video>
 
         <div className='absolute bottom-10 left-10'>
           <Title text='Fashion' splitBy='characters' className='text-4xl' />

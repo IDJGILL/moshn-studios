@@ -4,67 +4,17 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
-
-// export const projects = [
-//   {
-//     name: 'Upwork',
-//     image: project1,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Monzo',
-//     image: project2,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Pendo',
-//     image: project3,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Canva',
-//     image: project4,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Pendo',
-//     image: project3,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Monzo',
-//     image: project2,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Upwork',
-//     image: project1,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-//   {
-//     name: 'Monzo',
-//     image: project2,
-//     dsc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-//   },
-// ]
 
 const ProjectsSliderDesktop = dynamic(() => import('@/components/slider/projects-slider-desktop'), { ssr: false })
-
-const ProjectsSliderMobile = dynamic(() => import('@/components/slider/projects-slider-mobile'), { ssr: false })
 
 interface ProjectsSectionProps extends React.HTMLAttributes<HTMLElement> {
   projects: Projects
 }
 
 export default function ProjectsSection({ ...props }: ProjectsSectionProps) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1024px)',
-  })
-
   return (
     <section>
-      {isDesktopOrLaptop ? <ProjectsSliderDesktop projects={props.projects} /> : <ProjectsSliderMobile projects={props.projects} />}
+      <ProjectsSliderDesktop projects={props.projects} />
     </section>
   )
 }
@@ -82,18 +32,16 @@ export function ProjectCard({ ...props }: ProjectCardProps) {
       onMouseLeave={() => setIsHovered(false)}
       href={`/projects/${props.project.slug}`}
       className={cn(
-        'overflow-hidden shrink-0 h-[calc(100vh-160px)] aspect-[9/16] cursor-pointer card bg-black rounded-3xl hover:scale-[1.08] ease-in-out duration-300',
+        'relative overflow-hidden shrink-0 h-[calc(100vh-160px)] w-full md:max-w-max aspect-[9/16] cursor-pointer card bg-black rounded-3xl md:hover:scale-[1.08] ease-in-out duration-300',
         props.className
       )}
     >
       {!isHovered ? (
         <Image
           src={props.project.projectFields.videoThumbnail?.node.mediaItemUrl ?? ''}
-          width={600}
-          height={800}
           alt=''
-          className='aspect-[9/16]'
-          priority
+          fill
+          className='aspect-[9/16] object-cover'
         />
       ) : (
         <video autoPlay muted playsInline loop>

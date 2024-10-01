@@ -1,6 +1,9 @@
 import { Button } from '@nextui-org/react'
 import { CornerRightDown } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+
+const HeroVideo = dynamic(() => import('./hero-video'), { ssr: false })
 
 export function HeroSection({ ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -28,7 +31,7 @@ export function HeroSection({ ...props }: React.HTMLAttributes<HTMLElement>) {
       {/* Gradient fade at the bottom */}
       <div className='absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent to-black z-20'></div>
 
-      <video src='/videos/hero-16-9.mp4' autoPlay loop muted playsInline className='w-full h-full absolute top-0 object-cover'></video>
+      <HeroVideo />
     </section>
   )
 }

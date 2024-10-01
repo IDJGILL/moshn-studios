@@ -1,9 +1,9 @@
 import extractImageUrls from './parser'
 
 export type Project = {
-  title: string
   slug: string
   projectFields: {
+    projectTitle: string
     projectOverview: string
     projectDetails: string
     projectConclusion: string
@@ -34,9 +34,9 @@ export type Project = {
 export const getProjectBySlug = async (slug: string): Promise<Project> => {
   const query = `query GetProject {
   project(id: "${slug}", idType: SLUG) {
-    title
     slug
     projectFields {
+      projectTitle
       projectOverview
       projectDetails
       projectConclusion
@@ -89,7 +89,6 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 }
 
 export type Projects = {
-  title: string
   slug: string
   projectFields: {
     video: {
@@ -114,7 +113,6 @@ export const getProjects = async (): Promise<Projects> => {
   const query = `query GetProjects {
   projects(first: 10) {
     nodes {
-      title
       slug
       projectFields {
         video {
